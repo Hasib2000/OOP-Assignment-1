@@ -1,0 +1,54 @@
+package Account_Info_Check;
+
+
+public class Balance_Check {
+    String rahim_pin="",anik_pin="1234",horizontal_line="-------------------------------------------------------------";
+        Account Rahim;
+        // make account with setting pin number
+        Account Anik=new Account("Anika Ahmed","017xxxxxxxxx",anik_pin);
+
+    public Balance_Check() {
+        this.Rahim = new Account("Raisa Islam","014xxxxxxxxx");
+    }
+
+        System.out.println(Rahim);
+        System.out.println(Anik);
+        System.out.println(horizontal_line);
+
+        Raisa.add_money(3000,Rahim.getCustomer_name());
+        Anik.add_money(2540,Anik.getCustomer_name());
+        System.out.println(horizontal_line);
+
+        //to see what will happen if user want to cash out money without setting pin number
+        Rahim.cash_out(2000,"1233");
+        //if user's pin number has not been set, then here we will set pin number for user
+        rahim_pin=Rahim.is_pin_set()?rahim_pin:Rahim.setPin_number("1223","set");
+        System.out.println(horizontal_line);
+
+        Anik.cash_out(2000,anika_pin);
+        anika_pin=Rahim.is_pin_set()?anik_pin:Anik.setPin_number("1234","set");
+        System.out.println(horizontal_line);
+
+        Rahim.cash_out(2500,raisa_pin);
+        System.out.println(horizontal_line);
+ 
+        //User inserting wrong pin number
+        Anik.cash_out(2000,"1225");
+        System.out.println(horizontal_line);
+
+        //to see what will happen if user has submitted wrong pin number to update pin number
+        anik_pin= Anik.is_pin_update_possible("1134") ? Anik.setPin_number("1123","updated"): anik_pin;
+        System.out.println(horizontal_line);
+
+        anik_pin= Anik.is_pin_update_possible(anik_pin) ? Anik.setPin_number("1123","updated"): anik_pin;
+        System.out.println(horizontal_line);
+
+        //to see what will happen if user's balance is low while he/she is trying to cash out money
+        Anik.cash_out(2000,anika_pin);
+        System.out.println(horizontal_line);
+
+        System.out.println("Balance after transaction:");
+        System.out.println(Raisa);
+        System.out.println(Anik);
+   } 
+}
